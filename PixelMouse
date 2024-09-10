@@ -1,0 +1,23 @@
+
+s1.initCam(0)
+s2.initScreen(1)
+src(s1)
+
+
+
+.mult(osc(10,0.3,()=>Math.sin(time)*3).saturate(3).kaleid(200))
+.modulate(o0,0.5)
+.add(s2,0.8)
+.scrollY(-.01)
+.scale(()=> mouse.y/300)
+.modulate(voronoi(8,1),0.008)
+.luma(()=> a.fft[1]*0.3)
+.out(o0)
+
+
+src(s2).blend(o0,.6)
+    .out(o1)
+
+speed = 0.1
+
+render(o1)
