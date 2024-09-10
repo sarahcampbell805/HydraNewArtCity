@@ -1,0 +1,18 @@
+
+s1.initScreen(1)
+s2.initCam(0)
+
+src(s1)
+
+.scale(1.7)
+//.modulate(noise(2))
+.modulate(o0)
+
+.modulate(s1)
+.modulatePixelate(noise(3).pixelate(8,()=> a.fft[2]),1024,8)
+.blend(s2,.3)
+
+//.blend(shape(2,.04).repeat(4).scrollX(time%360))
+
+.out(o0)
+
